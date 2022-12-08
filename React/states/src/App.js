@@ -5,7 +5,18 @@ function App() {
   const [name, setName] = useState("Hi!");
   const [age, setAge] = useState(23);
   const [randoms, setRandom] = useState(["xyz", "yxz"]);
-  const [secondRandom, setSecondRandom] = useState({titleOne: "asd", titleTwo: "fgh"})
+  const [secondRandom, setSecondRandom] = useState({titleOne: "asd", titleTwo: "fgh"});
+
+
+  /* Input Example */
+
+  const [form, setForm] = useState({name: "", surname: ""});
+
+  const onChangeInput = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+
   return (
     <div className="App">
       <h1> { name } </h1>
@@ -24,6 +35,16 @@ function App() {
 
       <button onClick={() => setSecondRandom({...secondRandom, titleOne: "sssss"})}></button> 
       {/* <button onClick={() => setSecondRandom({titleOne: rty, titleTwo: iop})}></button>  */}
+
+      <hr />
+
+      <input  name='name' value={form.name} onChange={onChangeInput} />
+
+      <br></br>
+
+      <input name='name' value={form.name} onChange={onChangeInput} />
+
+      {form.name} {form.surname}
 
     </div>
   );
